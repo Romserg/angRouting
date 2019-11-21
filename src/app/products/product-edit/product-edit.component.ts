@@ -1,22 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { MessageService } from '../../messages/message.service';
 
 import { Product } from '../product';
 import { ProductService } from '../product.service';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   templateUrl: './product-edit.component.html',
   styleUrls: ['./product-edit.component.css']
 })
-export class ProductEditComponent {
+export class ProductEditComponent implements OnInit, OnDestroy {
   pageTitle = 'Product Edit';
   errorMessage: string;
-
+  subscription: Subscription;
   product: Product;
 
   constructor(private productService: ProductService,
-              private messageService: MessageService) { }
+              private messageService: MessageService,
+              private route: ActivatedRoute) {
+  }
+
+  ngOnInit(): void {
+    this.subscription = this.route.paramMap.subscribe(
+      params => this.getProduct(+params.get('id'))
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   getProduct(id: number): void {
     this.productService.getProduct(id).subscribe({
