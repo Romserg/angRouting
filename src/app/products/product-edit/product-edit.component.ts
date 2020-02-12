@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { MessageService } from '../../messages/message.service';
 
-import { Product } from '../product';
+import { Product, ProductResolved } from '../product';
 import { ProductService } from '../product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -24,20 +24,15 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription = this.route.paramMap.subscribe(
-      params => this.getProduct(+params.get('id'))
-    );
+    this.route.data.subscribe(data => {
+      const resolvedData: ProductResolved = data['resolvedData'];
+      this.errorMessage = resolvedData.error;
+      this.onProductRetrieved(resolvedData.product);
+    });
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
-
-  getProduct(id: number): void {
-    this.productService.getProduct(id).subscribe({
-      next: product => this.onProductRetrieved(product),
-      error: err => this.errorMessage = err
-    });
   }
 
   onProductRetrieved(product: Product): void {
@@ -69,20 +64,16 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   }
 
   saveProduct(): void {
-    if (true === true) {
-      if (this.product.id === 0) {
-        this.productService.createProduct(this.product).subscribe({
-          next: () => this.onSaveComplete(`The new ${this.product.productName} was saved`),
-          error: err => this.errorMessage = err
-        });
-      } else {
-        this.productService.updateProduct(this.product).subscribe({
-          next: () => this.onSaveComplete(`The updated ${this.product.productName} was saved`),
-          error: err => this.errorMessage = err
-        });
-      }
+    if (this.product.id === 0) {
+      this.productService.createProduct(this.product).subscribe({
+        next: () => this.onSaveComplete(`The new ${this.product.productName} was saved`),
+        error: err => this.errorMessage = err
+      });
     } else {
-      this.errorMessage = 'Please correct the validation errors.';
+      this.productService.updateProduct(this.product).subscribe({
+        next: () => this.onSaveComplete(`The updated ${this.product.productName} was saved`),
+        error: err => this.errorMessage = err
+      });
     }
   }
 
