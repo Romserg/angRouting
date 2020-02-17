@@ -53,15 +53,15 @@
 
     /* Rounds the corners */
 .wizard a:first-child {
-    -webkit-border-radius: 8px 0 0 0px;
-    -moz-border-radius: 8px 0 0 0px;
-    border-radius: 8px 0 0 0px;
+    -webkit-border-radius: 8px 0 0 0;
+    -moz-border-radius: 8px 0 0 0;
+    border-radius: 8px 0 0 0;
 }
 
 .wizard a:last-child {
-    -webkit-border-radius: 0 8px 0px 0;
-    -moz-border-radius: 0 8px 0px 0;
-    border-radius: 0 8px 0px 0;
+    -webkit-border-radius: 0 8px 0 0;
+    -moz-border-radius: 0 8px 0 0;
+    border-radius: 0 8px 0 0;
 }
 
 .wizard .active {
