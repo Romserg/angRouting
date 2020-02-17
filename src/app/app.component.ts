@@ -27,6 +27,6 @@ export class AppComponent {
 
   logOut(): void {
     this.authService.logout();
-    this.router.navigateByUrl('/welcome').catch(e => e);
+    this.router.navigateByUrl('/welcome').catch(e => console.log(e));
   }
 }
