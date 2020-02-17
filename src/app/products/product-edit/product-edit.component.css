@@ -73,3 +73,7 @@
 .wizard .active:after {
     border-left-color: #007ACC;
 }
+
+.disabled {
+  cursor: not-allowed;
+}
