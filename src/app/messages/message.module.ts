@@ -6,10 +6,11 @@ import { MessageComponent } from './message.component';
 
 @NgModule({
   imports: [
-    SharedModule
+    SharedModule,
   ],
   declarations: [
-    MessageComponent
-  ]
+    MessageComponent,
+  ],
 })
-export class MessageModule { }
+export class MessageModule {
+}

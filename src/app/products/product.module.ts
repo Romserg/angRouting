@@ -25,36 +25,36 @@ import { ProductEditTagsComponent } from './product-edit/product-edit-tags.compo
           {
             path: ':id',
             component: ProductDetailComponent,
-            resolve: {resolvedData: ProductResolver}
+            resolve: { resolvedData: ProductResolver },
 
           },
           {
             path: ':id/edit',
             component: ProductEditComponent,
-            resolve: {resolvedData: ProductResolver},
+            resolve: { resolvedData: ProductResolver },
             children: [
               {
-                path: '', redirectTo: 'info', pathMatch: 'full'
+                path: '', redirectTo: 'info', pathMatch: 'full',
               },
               {
-                path: 'info', component: ProductEditInfoComponent
+                path: 'info', component: ProductEditInfoComponent,
               },
               {
-                path: 'tags', component: ProductEditTagsComponent
-              }
-            ]
-          }
-        ]
-      }
-    ])
+                path: 'tags', component: ProductEditTagsComponent,
+              },
+            ],
+          },
+        ],
+      },
+    ]),
   ],
   declarations: [
     ProductListComponent,
     ProductDetailComponent,
     ProductEditComponent,
     ProductEditInfoComponent,
-    ProductEditTagsComponent
-  ]
+    ProductEditTagsComponent,
+  ],
 })
 export class ProductModule {
 }

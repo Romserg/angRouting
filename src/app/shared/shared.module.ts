@@ -6,15 +6,16 @@ import { StarComponent } from './star.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   declarations: [
-    StarComponent
+    StarComponent,
   ],
   exports: [
     StarComponent,
     CommonModule,
-    FormsModule
-  ]
+    FormsModule,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {
+}

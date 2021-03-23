@@ -16,7 +16,7 @@ export class ProductData implements InMemoryDbService {
         starRating: 3.2,
         imageUrl: 'assets/images/leaf_rake.png',
         category: 'Garden',
-        tags: ['rake', 'leaf', 'yard', 'home']
+        tags: ['rake', 'leaf', 'yard', 'home'],
       },
       {
         id: 2,
@@ -27,7 +27,7 @@ export class ProductData implements InMemoryDbService {
         price: 32.99,
         starRating: 4.2,
         imageUrl: 'assets/images/garden_cart.png',
-        category: 'Garden'
+        category: 'Garden',
       },
       {
         id: 5,
@@ -39,7 +39,7 @@ export class ProductData implements InMemoryDbService {
         starRating: 4.8,
         imageUrl: 'assets/images/hammer.png',
         category: 'Toolbox',
-        tags: ['tools', 'hammer', 'construction']
+        tags: ['tools', 'hammer', 'construction'],
       },
       {
         id: 8,
@@ -50,7 +50,7 @@ export class ProductData implements InMemoryDbService {
         price: 11.55,
         starRating: 3.7,
         imageUrl: 'assets/images/saw.png',
-        category: 'Toolbox'
+        category: 'Toolbox',
       },
       {
         id: 10,
@@ -61,8 +61,8 @@ export class ProductData implements InMemoryDbService {
         price: 35.95,
         starRating: 4.6,
         imageUrl: 'assets/images/xbox-controller.png',
-        category: 'Gaming'
-      }
+        category: 'Gaming',
+      },
     ];
     return { products };
   }

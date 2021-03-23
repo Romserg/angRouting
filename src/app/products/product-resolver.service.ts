@@ -8,7 +8,7 @@ import { ProductService } from './product.service';
 import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 
 export class ProductResolver implements Resolve<ProductResolved> {
@@ -21,16 +21,16 @@ export class ProductResolver implements Resolve<ProductResolved> {
     if (isNaN(+id)) {
       const message = `Product id was not a number: ${id}`;
       console.error(message);
-      return of({product: null, error: message});
+      return of({ product: null, error: message });
     }
     return this.productService.getProduct(+id)
       .pipe(
-        map(product => ({product: product})),
+        map(product => ({ product: product })),
         catchError(err => {
           const message = `Retrieval error: ${err}`;
           console.error(message);
-          return of({product: null, error: message});
-        })
+          return of({ product: null, error: message });
+        }),
       );
   }
 }

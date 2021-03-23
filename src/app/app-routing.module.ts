@@ -4,16 +4,16 @@ import { WelcomeComponent } from './home/welcome.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 
 const ROUTES = [
-  {path: '', redirectTo: 'welcome', pathMatch: 'full'},
-  {path: 'welcome', component: WelcomeComponent},
-  {path: '**', component: PageNotFoundComponent}
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  { path: 'welcome', component: WelcomeComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 
 export class AppRoutingModule {

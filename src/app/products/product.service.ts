@@ -7,18 +7,19 @@ import { catchError, tap, map } from 'rxjs/operators';
 import { Product } from './product';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
   private productsUrl = 'api/products';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.productsUrl)
       .pipe(
         tap(data => console.log(JSON.stringify(data))),
-        catchError(this.handleError)
+        catchError(this.handleError),
       );
   }
 
@@ -30,7 +31,7 @@ export class ProductService {
     return this.http.get<Product>(url)
       .pipe(
         tap(data => console.log('getProduct: ' + JSON.stringify(data))),
-        catchError(this.handleError)
+        catchError(this.handleError),
       );
   }
 
@@ -40,7 +41,7 @@ export class ProductService {
     return this.http.post<Product>(this.productsUrl, product, { headers })
       .pipe(
         tap(data => console.log('createProduct: ' + JSON.stringify(data))),
-        catchError(this.handleError)
+        catchError(this.handleError),
       );
   }
 
@@ -50,7 +51,7 @@ export class ProductService {
     return this.http.delete<Product>(url, { headers })
       .pipe(
         tap(data => console.log('deleteProduct: ' + id)),
-        catchError(this.handleError)
+        catchError(this.handleError),
       );
   }
 
@@ -62,7 +63,7 @@ export class ProductService {
         tap(() => console.log('updateProduct: ' + product.id)),
         // Return the product on an update
         map(() => product),
-        catchError(this.handleError)
+        catchError(this.handleError),
       );
   }
 
@@ -94,7 +95,7 @@ export class ProductService {
       price: null,
       description: null,
       starRating: null,
-      imageUrl: null
+      imageUrl: null,
     };
   }
 }

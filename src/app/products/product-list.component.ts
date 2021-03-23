@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
   pageTitle = 'Product List';
@@ -19,6 +19,7 @@ export class ProductListComponent implements OnInit {
   get listFilter(): string {
     return this._listFilter;
   }
+
   set listFilter(value: string) {
     this._listFilter = value;
     this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
@@ -27,7 +28,8 @@ export class ProductListComponent implements OnInit {
   filteredProducts: Product[] = [];
   products: Product[] = [];
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) { }
+  constructor(private productService: ProductService, private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     this.listFilter = this.route.snapshot.queryParamMap.get('filterBy') || '';
@@ -38,7 +40,7 @@ export class ProductListComponent implements OnInit {
         this.products = products;
         this.filteredProducts = this.performFilter(this.listFilter);
       },
-      error: err => this.errorMessage = err
+      error: err => this.errorMessage = err,
     });
   }
 

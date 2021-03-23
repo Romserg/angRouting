@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  styleUrls: ['./product-detail.component.css'],
 })
 export class ProductDetailComponent implements OnInit {
   pageTitle = 'Product Detail';

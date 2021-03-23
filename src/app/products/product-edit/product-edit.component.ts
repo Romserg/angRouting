@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   templateUrl: './product-edit.component.html',
-  styleUrls: ['./product-edit.component.css']
+  styleUrls: ['./product-edit.component.css'],
 })
 export class ProductEditComponent implements OnInit, OnDestroy {
   pageTitle = 'Product Edit';
@@ -57,7 +57,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
       if (confirm(`Really delete the product: ${this.product.productName}?`)) {
         this.productService.deleteProduct(this.product.id).subscribe({
           next: () => this.onSaveComplete(`${this.product.productName} was deleted`),
-          error: err => this.errorMessage = err
+          error: err => this.errorMessage = err,
         });
       }
     }
@@ -77,12 +77,12 @@ export class ProductEditComponent implements OnInit, OnDestroy {
       if (this.product.id === 0) {
         this.productService.createProduct(this.product).subscribe({
           next: () => this.onSaveComplete(`The new ${this.product.productName} was saved`),
-          error: err => this.errorMessage = err
+          error: err => this.errorMessage = err,
         });
       } else {
         this.productService.updateProduct(this.product).subscribe({
           next: () => this.onSaveComplete(`The updated ${this.product.productName} was saved`),
-          error: err => this.errorMessage = err
+          error: err => this.errorMessage = err,
         });
       }
     }

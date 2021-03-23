@@ -5,15 +5,16 @@ import { NgForm } from '@angular/forms';
 import { Product } from '../product';
 
 @Component({
-  templateUrl: './product-edit-info.component.html'
+  templateUrl: './product-edit-info.component.html',
 })
 export class ProductEditInfoComponent implements OnInit {
-  @ViewChild(NgForm, {static: false}) productForm: NgForm;
+  @ViewChild(NgForm, { static: false }) productForm: NgForm;
 
   errorMessage: string;
   product: Product;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
     this.route.parent.data.subscribe(data => {

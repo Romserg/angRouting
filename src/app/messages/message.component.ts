@@ -6,8 +6,8 @@ import { MessageService } from './message.service';
 @Component({
   templateUrl: './message.component.html',
   styles: [
-    '.message-row { margin-bottom: 10px }'
-  ]
+    '.message-row { margin-bottom: 10px }',
+  ],
 })
 export class MessageComponent {
   get messages() {
@@ -15,7 +15,8 @@ export class MessageComponent {
   }
 
   constructor(private messageService: MessageService,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   close(): void {
     // Close the popup.
