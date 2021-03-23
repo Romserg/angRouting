@@ -66,7 +66,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   isValid(path?: string): boolean {
     this.validate();
     if (path) {
-      return this.dataIsValid['path'];
+      return this.dataIsValid[path];
     }
     return (this.dataIsValid &&
       Object.keys(this.dataIsValid).every(d => this.dataIsValid[d] === true));
