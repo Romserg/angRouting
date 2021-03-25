@@ -5,3 +5,7 @@
 div {
   cursor: pointer;
 }
+
+.fa.fa-star {
+  color: #d7ab47;
+}
